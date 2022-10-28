@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Main from "./components/Main/Main";
+import Reg from "./components/Reg/Reg";
+import Login from "./components/Login/Login";
+import Profile from "./components/Profile/Profile";
+import Course from "./components/Page/Course";
+import Category from "./components/Page/Category";
+import Summary from "./components/Page/Summary";
+import Privetroute from "./components/Privetroute/Privetroute";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main></Main>,
+      children: [
+        {
+          path: "/reg",
+          element: <Reg></Reg>,
+        },
+        {
+          path: "/login",
+          element: <Login></Login>,
+        },
+        {
+          path: "/profile",
+          element: <Profile></Profile>,
+        },
+        {
+          path: "/course",
+          element: <Course></Course>,
+        },
+
+        {
+          path: "/category/:id",
+          element: <Category></Category>,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/category/${params.id}`),
+        },
+        {
+          path: "/summary/:id",
+          element: (
+            <Privetroute>
+              <Summary></Summary>
+            </Privetroute>
+          ),
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/category/${params.id}`),
+        },
+      ],
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
