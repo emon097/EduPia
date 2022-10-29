@@ -1,12 +1,19 @@
 import React from "react";
-import { FaRegGrinStars } from "react-icons/fa";
+import { FaDownload, FaRegGrinStars } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import Summary from "./Summary";
+import Pdf from "react-to-pdf";
 const Category = () => {
   const course = useLoaderData();
   console.log(course);
+  const ref = React.createRef();
+  const options = {
+    orientation: "landscape",
+    unit: "in",
+    format: [10, 8],
+  };
   return (
-    <div>
+    <div ref={ref}>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-5 row-gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
@@ -15,7 +22,7 @@ const Category = () => {
                 {course.name}
               </h2>
               <p className="text-base text-gray-700 md:text-lg">
-                {course.details.slice(0, 600)}
+                {course.details.slice(0, 1000)}
               </p>
               <p>
                 <div className="rounded-md p-5 mt-10 bg-gray-300 ">
@@ -49,7 +56,7 @@ const Category = () => {
               alt=""
             />
           </div>
-          <div>
+          <div className="flex justify-between">
             <Link
               className="bg-orange-400 text-white w-48 p-2 rounded-lg flex items-center"
               to={`/summary/${course.id}`}
@@ -58,6 +65,18 @@ const Category = () => {
               <p className="mr-2">Buy Premium Course</p>
               <FaRegGrinStars></FaRegGrinStars>
             </Link>
+
+            <Pdf targetRef={ref} options={options} filename="code-example.pdf">
+              {({ toPdf }) => (
+                <button
+                  className="bg-red-600 p-2 rounded-lg flex items-center text-white "
+                  onClick={toPdf}
+                >
+                  Download Course Curiculam{" "}
+                  <FaDownload className="m-3"></FaDownload>
+                </button>
+              )}
+            </Pdf>
           </div>
         </div>
       </div>
