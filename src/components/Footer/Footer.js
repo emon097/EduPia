@@ -1,5 +1,5 @@
 import React from "react";
-
+import logo3 from "../media/logo.png";
 const Footer = () => {
   return (
     <div>
@@ -9,13 +9,9 @@ const Footer = () => {
             href="https://flowbite.com/"
             class="flex items-center mb-4 sm:mb-0"
           >
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              class="mr-3 h-8"
-              alt="Flowbite Logo"
-            />
+            <img src={logo3} class="mr-3 h-8" alt="Flowbite Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
+              Edupia
             </span>
           </a>
           <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
