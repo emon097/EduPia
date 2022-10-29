@@ -20,12 +20,10 @@ const Context = ({ children }) => {
   const [user, setUser] = useState();
   const [Loading, setLoading] = useState(true);
 
-  // createaccoun
   const createaccount = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  // createaccoun
 
   //  signinwithemail
   const signinemail = (email, password) => {
