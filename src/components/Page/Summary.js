@@ -1,9 +1,13 @@
 import React from "react";
+import { useContext } from "react";
+import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { Authcontext } from "../Context/Context";
 
 const Summary = () => {
   const summary = useLoaderData();
   console.log(summary);
+  const { user } = useContext(Authcontext);
   return (
     <div>
       <div className="bg-green-500 m-10 p-3 rounded ">
@@ -23,6 +27,15 @@ const Summary = () => {
       <div className="grid grid-cols-2">
         <div className="m-16">
           {" "}
+          <p className="text-xl font-bold ">
+            {" "}
+            <p>Welcome to Payment Page </p>{" "}
+            <p className="text-red-600">{user.displayName}</p>{" "}
+            <p>
+              {" "}
+              <p>Please Complete Your Payment</p>{" "}
+            </p>
+          </p>
           <form>
             <div class="grid md:grid-cols-2 mt-14 md:gap-6">
               <div class="relative z-0 mb-6 w-full group">

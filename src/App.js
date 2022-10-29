@@ -8,6 +8,7 @@ import Course from "./components/Page/Course";
 import Category from "./components/Page/Category";
 import Summary from "./components/Page/Summary";
 import Privetroute from "./components/Privetroute/Privetroute";
+import Home from "./components/Home/Home";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +16,10 @@ function App() {
       path: "/",
       element: <Main></Main>,
       children: [
+        {
+          path: "/",
+          element: <Home></Home>,
+        },
         {
           path: "/reg",
           element: <Reg></Reg>,
@@ -52,7 +57,7 @@ function App() {
     },
   ]);
   return (
-    <div>
+    <div className="background">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

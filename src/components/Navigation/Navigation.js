@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../Context/Context";
 import logo3 from "../media/logo3.png";
+import "./Navigation.module.css";
 const Navigation = () => {
   const { Logout, user } = useContext(Authcontext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ const Navigation = () => {
       <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full   lg:px-8">
         <div class="relative flex items-center justify-around">
           <Link
-            href="/"
+            to="/"
             aria-label="Company"
             title="Company"
             class="inline-flex items-center"
@@ -83,7 +84,12 @@ const Navigation = () => {
               </Link>
             </li>
           </ul>
+
           <ul class="flex items-center hidden space-x-8 lg:flex">
+            <div className="flex justify-center items-center">
+              <input className="ddd" type="checkbox" id="darkmode-toggle" />
+              <label for="darkmode-toggle"></label>
+            </div>
             {user?.uid ? (
               <>
                 <Link to="/profile">
@@ -95,6 +101,7 @@ const Navigation = () => {
                     />
                   </li>
                 </Link>
+
                 <li>
                   <Link
                     onClick={logout}
@@ -143,28 +150,14 @@ const Navigation = () => {
                   <div class="flex items-center justify-between mb-4">
                     <div>
                       <Link
-                        href="/"
+                        to="/"
                         aria-label="Company"
                         title="Company"
                         class="inline-flex items-center"
                       >
-                        <svg
-                          class="w-8 text-deep-purple-accent-400"
-                          viewBox="0 0 24 24"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeMiterlimit="10"
-                          stroke="currentColor"
-                          fill="none"
-                        >
-                          <rect x="3" y="1" width="7" height="12" />
-                          <rect x="3" y="17" width="7" height="6" />
-                          <rect x="14" y="1" width="7" height="6" />
-                          <rect x="14" y="11" width="7" height="12" />
-                        </svg>
+                        <img src={logo3} alt="" />
                         <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          Company
+                          Edupia
                         </span>
                       </Link>
                     </div>
