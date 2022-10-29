@@ -198,12 +198,12 @@ const Navigation = () => {
                       </li>
                       <li>
                         <Link
-                          href="/"
+                          to="/course"
                           aria-label="Product pricing"
                           title="Product pricing"
                           class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Pricing
+                          Course
                         </Link>
                       </li>
                       <li>
@@ -219,7 +219,7 @@ const Navigation = () => {
                       <li>
                         <Link
                           to="/login"
-                          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline "
                           aria-label="Sign up"
                           title="Sign up"
                         >
