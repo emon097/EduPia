@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import app from "../../firebase/firebase.config";
 import { Authcontext } from "../Context/Context";
-import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,6 +16,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const googleprovider = new GoogleAuthProvider();
+  const gitprovider = new GithubAuthProvider();
   const auth = getAuth(app);
   const loginhandle = (event) => {
     event.preventDefault();
@@ -29,6 +34,14 @@ const Login = () => {
   };
   const googlesignin = () => {
     signInWithPopup(auth, googleprovider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
+  const gitlogin = () => {
+    signInWithPopup(auth, gitprovider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -103,7 +116,7 @@ const Login = () => {
             {" "}
             <FaFacebook className="text-blue-500"></FaFacebook>{" "}
           </p>
-          <p className="border-2 p-3 rounded-lg">
+          <p onClick={gitlogin} className="border-2 p-3 rounded-lg">
             {" "}
             <FaGithub></FaGithub>{" "}
           </p>

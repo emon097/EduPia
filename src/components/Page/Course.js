@@ -6,7 +6,7 @@ import Content from "./Content";
 const Course = () => {
   const [categories, seCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/category/")
+    fetch("https://edu-withmadness-server.vercel.app/category/")
       .then((res) => res.json())
       .then((data) => seCategories(data))
       .catch((error) => console.log(error));

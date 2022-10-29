@@ -1,4 +1,4 @@
-label {
+.dark {
     width:60px;
     height:40px;
     position: relative;
@@ -8,7 +8,7 @@ label {
     box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
     cursor: pointer;
   }
-  label:after {
+  .dark:after {
     content: "";
     width:30px;
     height: 30px;
@@ -19,22 +19,22 @@ label {
     border-radius: 180px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
   }
-  input {
+  .ddd {
     width: 0;
     height: 0;
     visibility: hidden;
   }
 
-  input:checked + label {
+  .ddd:checked + label {
     background: #242424;
   }
-  input:checked + label:after {
+  .ddd:checked + label:after {
     left:60px;
     transform: translateX(-100%);
     background: linear-gradient(180deg,#777,#3a3a3a);
   }
   label, label:after {
-    transition: 0.5s
+    transition: 0.2s
   }
   
 
@@ -47,6 +47,6 @@ label {
     transition: 0.3s;
   }
 
-  input:checked + label + .background {
+  .ddd:checked + label + .background {
     background:#242424;
   }

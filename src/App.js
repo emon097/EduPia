@@ -41,7 +41,9 @@ function App() {
           path: "/category/:id",
           element: <Category></Category>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/category/${params.id}`),
+            fetch(
+              `https://edu-withmadness-server.vercel.app/category/${params.id}`
+            ),
         },
         {
           path: "/summary/:id",
@@ -51,9 +53,21 @@ function App() {
             </Privetroute>
           ),
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/category/${params.id}`),
+            fetch(
+              `https://edu-withmadness-server.vercel.app/category/${params.id}`
+            ),
         },
       ],
+    },
+    {
+      path: "*",
+      element: (
+        <img
+          className="flex w-full justify-center items-center"
+          src="https://cdn.presslabs.com/wp-content/uploads/2018/03/custom-error-pages.png"
+          alt=""
+        />
+      ),
     },
   ]);
   return (

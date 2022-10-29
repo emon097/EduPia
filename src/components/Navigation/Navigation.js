@@ -4,7 +4,9 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../Context/Context";
 import logo3 from "../media/logo3.png";
-import "./Navigation.module.css";
+
+import claases from "./Navigation.module.css";
+
 const Navigation = () => {
   const { Logout, user } = useContext(Authcontext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,8 +89,12 @@ const Navigation = () => {
 
           <ul class="flex items-center hidden space-x-8 lg:flex">
             <div className="flex justify-center items-center">
-              <input className="ddd" type="checkbox" id="darkmode-toggle" />
-              <label for="darkmode-toggle"></label>
+              <input
+                className={claases.ddd}
+                type="checkbox"
+                id="darkmode-toggle"
+              />
+              <label className={claases.dark} for="darkmode-toggle"></label>
             </div>
             {user?.uid ? (
               <>
