@@ -55,19 +55,10 @@ const Navigation = () => {
                 Courses
               </Link>
             </li>
+
             <li>
               <Link
-                href="/"
-                aria-label="Our product"
-                title="Our product"
-                class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/"
+                to="/blog"
                 aria-label="Product pricing"
                 title="Product pricing"
                 class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"

@@ -9,6 +9,7 @@ import Category from "./components/Page/Category";
 import Summary from "./components/Page/Summary";
 import Privetroute from "./components/Privetroute/Privetroute";
 import Home from "./components/Home/Home";
+import Blog from "./components/Blog/Blog";
 
 function App() {
   const router = createBrowserRouter([
@@ -39,6 +40,10 @@ function App() {
         {
           path: "/course",
           element: <Course></Course>,
+        },
+        {
+          path: "/blog",
+          element: <Blog></Blog>,
         },
 
         {
