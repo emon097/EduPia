@@ -21,6 +21,10 @@ function App() {
           element: <Home></Home>,
         },
         {
+          path: "/home",
+          element: <Home></Home>,
+        },
+        {
           path: "/reg",
           element: <Reg></Reg>,
         },

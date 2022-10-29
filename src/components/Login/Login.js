@@ -14,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { user, signinemail, Logout } = useContext(Authcontext);
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/home";
   const googleprovider = new GoogleAuthProvider();
   const gitprovider = new GithubAuthProvider();
   const auth = getAuth(app);
