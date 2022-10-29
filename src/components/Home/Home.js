@@ -43,7 +43,7 @@ const Home = () => {
                   </svg>
                   <span className="relative">The</span>
                 </span>{" "}
-                Your Patient Your Success
+                Your Patient Your Success And Grow Wisely
               </h2>
             </div>
             <div className="flex items-center sm:justify-center">
